@@ -1,29 +1,11 @@
-import Head from "next/head";
-import { useState, useEffect } from "react";
-import { useTheme } from "next-themes";
+import Container from "../components/Container";
+import Hero from "../components/Hero";
 
 export default function Home() {
-  const { theme, setTheme } = useTheme();
-  const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  const switchTheme = () => {
-    if (isMounted) {
-      setTheme(theme === "light" ? "dark" : "light");
-    }
-  };
-
   return (
-    <div className="text-center">
-      <Head>
-        <title>Dark mode with Tailwind and Next.js</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <h1 className="text:2xl">Dark mode with Tailwind and Next-themes</h1>
-      <button onClick={switchTheme}>Change theme</button>
-    </div>
+    <Container>
+      <Hero />
+      <div className="max-w-5xl w-fill mx-auto"></div>
+    </Container>
   );
 }
