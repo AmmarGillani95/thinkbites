@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <section className="bg-navy ">
+    <section className="bg-navy pt-8">
       <div className="flex max-w-5xl w-fill mx-auto  px-8 justify-between pt-6">
         <div className=" max-w-xl">
           <h2 className="  lg:text-3xl text-2xl  tracking-wider font-bold text-salmon ">
@@ -70,14 +70,16 @@ export default function Hero() {
           </svg>
         </div>
       </div>
-      <div>
+      <div className="w-full  relative h-24">
         <svg
-          width="1427"
-          viewBox="0 0 1427 167"
-          className="fill-current text-white w-full dark:text-navy"
+          preserveAspectRatio="none"
+          width="1441"
+          height="82"
+          viewBox="0 0 1441 82"
+          className="fill-current text-white w-full dark:text-navy absolute -bottom-2 left-0 right-0"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <path d="M269.295 114.844C71.589 109.829 -14 0 -14 0V167H1427V54.1622C1427 54.1622 1346.92 20.0601 1149.71 20.0601C952.506 20.0601 467.001 119.859 269.295 114.844Z" />
+          <path d="M310.5 52.5C112.794 47.485 0 0.337891 0 0.337891V81.5001H1441V29.5001C1441 29.5001 1319.71 0.337849 1122.5 0.337849C925.295 0.337849 508.206 57.515 310.5 52.5Z" />
         </svg>
       </div>
     </section>

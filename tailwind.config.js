@@ -9,6 +9,7 @@ module.exports = {
       colors: {
         navy: "#102344",
         salmon: "#E6A490",
+        darkNavy: "#0C1C36",
       },
       fontFamily: {
         sans: ["Montserrat", ...fontFamily.sans],

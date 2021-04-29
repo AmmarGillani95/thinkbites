@@ -7,8 +7,9 @@ import FeaturedContributor from "../components/FeaturedContributor";
 export default function Home() {
   return (
     <Container>
-      <Hero />
       <div className="flex flex-col  space-y-16">
+        <Hero />
+
         <FeaturedPost />
         <RecentPosts />
         <FeaturedContributor />

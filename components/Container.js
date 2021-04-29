@@ -2,6 +2,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 export default function Container(props) {
   const router = useRouter();
@@ -41,8 +42,8 @@ export default function Container(props) {
         )}
       </Head>
       <Navbar />
-
       <main className="  antialiased ">{children}</main>
+      <Footer />
     </div>
   );
 }
