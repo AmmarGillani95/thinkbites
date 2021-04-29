@@ -42,7 +42,7 @@ export default function Container(props) {
       </Head>
       <Navbar />
 
-      <main>{children}</main>
+      <main className="  antialiased ">{children}</main>
     </div>
   );
 }

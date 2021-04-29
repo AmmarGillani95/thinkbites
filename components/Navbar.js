@@ -25,7 +25,7 @@ export default function Navbar() {
   };
   return (
     <div className="bg-navy">
-      <nav className=" flex justify-between  py-7 items-center max-w-5xl w-fill mx-auto  px-3 ">
+      <nav className=" flex justify-between  py-7 items-center max-w-5xl w-fill mx-auto  px-8 ">
         <Link href="/">
           <a className="lowercase text-3xl font-semibold  leading-none tracking-widest text-salmon">
             Thinkbites
