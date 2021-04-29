@@ -4,10 +4,10 @@ import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 
 const Navlinks = [
-  { name: "articles", target: "/articles" },
-  { name: "projects", target: "/projects" },
-  { name: "contribute", target: "/contribute" },
-  { name: "about", target: "/about" },
+  { name: "articles", target: "/" },
+  { name: "projects", target: "/" },
+  { name: "contribute", target: "/" },
+  { name: "about", target: "/" },
 ];
 
 export default function Navbar() {
@@ -43,7 +43,7 @@ export default function Navbar() {
             aria-label="Toggle Dark Mode"
             type="button"
             className="focus:outline-none"
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            onClick={() => setTheme(theme === "light" ? "dark" : "light")}
           >
             {isMounted && (
               <svg
@@ -51,9 +51,9 @@ export default function Navbar() {
                 viewBox="0 0 24 24"
                 fill="currentColor"
                 stroke="currentColor"
-                className="text-salmon dark:text-gray-200  h-5 w-5"
+                className="dark:text-salmon text-gray-200  h-5 w-5"
               >
-                {theme === "dark" ? (
+                {theme === "light" ? (
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"

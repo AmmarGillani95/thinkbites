@@ -27,9 +27,9 @@ export default function RecentPosts() {
               <h3 className="font-bold tracking-wider text-lg leading-snug">
                 {post.title}
               </h3>
-              <div className="flex flex-col  text-gray-500 mt-1">
+              <div className="flex flex-col  text-gray-400 mt-1">
                 <span className="text-base">{post.author}</span>
-                <span className="text-xs">{post.date}</span>
+                <span className="text-xs">{`${post.date} • ${post.read} read`}</span>
               </div>
               <p className="mt-2  text-xs font-medium tracking-wider leading-normal">
                 {post.excerpt}

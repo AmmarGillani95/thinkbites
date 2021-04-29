@@ -23,7 +23,7 @@ export default function FeaturedPost() {
           Soft Skills: The Importance of Personal Development
         </h3>
 
-        <div className="flex flex-col  text-gray-500 mt-1">
+        <div className="flex flex-col  text-gray-400 mt-1">
           <span className="text-lg">Omar Usman</span>
           <span className=" text-xs">April 10, 2021 • 7 min read</span>
         </div>
