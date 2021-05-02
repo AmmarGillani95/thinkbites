@@ -3,8 +3,8 @@ import Link from "next/link";
 
 export default function FeaturedContributor() {
   return (
-    <section className="max-w-5xl w-fill mx-auto px-8 bg-white dark:bg-navy flex flex-col">
-      <div className="flex flex-row text-navy dark:text-white">
+    <section className="max-w-5xl w-fill mx-auto px-8 bg-white dark:bg-navy">
+      <div className="flex flex-col md:flex-row text-navy dark:text-white">
         <div className="w-full h-full mr-16 max-w-xs rounded-full border-salmon border-4  overflow-hidden shadow-md">
           <Image
             src="https://thinkbites.org/wp-content/uploads/2021/01/Omar-Usman.jpeg"

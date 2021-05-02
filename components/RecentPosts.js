@@ -9,7 +9,7 @@ export default function RecentPosts() {
       <h2 className="block mx-auto text-salmon font-medium  text-sm tracking-widest uppercase ">
         Recent
       </h2>
-      <div className="grid grid-cols-3 grid-rows-1 gap-16 mt-6 text-navy dark:text-white">
+      <div className="grid grid-cols-1 grid-rows-3 md:grid-cols-3 md:grid-rows-1 gap-16 mt-6 text-navy dark:text-white">
         {recentpostsData.map((post) => (
           <article key={post.title}>
             <div className="shadow-md">
@@ -27,7 +27,7 @@ export default function RecentPosts() {
               <h3 className="font-bold tracking-wider text-lg leading-snug">
                 {post.title}
               </h3>
-              <div className="flex flex-col  text-gray-400 mt-1">
+              <div className="flex flex-col  text-gray-500 mt-1">
                 <span className="text-base">{post.author}</span>
                 <span className="text-xs">{`${post.date} • ${post.read} read`}</span>
               </div>

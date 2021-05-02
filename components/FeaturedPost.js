@@ -3,8 +3,8 @@ import Link from "next/link";
 
 export default function FeaturedPost() {
   return (
-    <article className="max-w-5xl w-fill mx-auto  px-8 bg-white dark:bg-navy flex ">
-      <div className=" w-6/12 h-full mr-16 shadow-2xl">
+    <article className="max-w-5xl w-fill mx-auto  px-8 bg-white dark:bg-navy flex flex-col md:flex-row">
+      <div className=" md:w-6/12 h-full md:mr-16 shadow-2xl">
         <Image
           src="https://thinkbites.org/wp-content/uploads/2021/01/381CEEAF-5F36-4438-A58C-DF6D60AD176B-2.jpg"
           alt="Post featured image"
@@ -15,7 +15,7 @@ export default function FeaturedPost() {
           layout="responsive"
         />
       </div>
-      <div className="w-6/12">
+      <div className="md:w-6/12">
         <h2 className="text-salmon font-medium  text-sm tracking-widest uppercase ">
           Featured
         </h2>
@@ -23,7 +23,7 @@ export default function FeaturedPost() {
           Soft Skills: The Importance of Personal Development
         </h3>
 
-        <div className="flex flex-col  text-gray-400 mt-1">
+        <div className="flex flex-col  text-gray-500  mt-1">
           <span className="text-lg">Omar Usman</span>
           <span className=" text-xs">April 10, 2021 • 7 min read</span>
         </div>

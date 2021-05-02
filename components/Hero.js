@@ -40,11 +40,11 @@ export default function Hero() {
             </div>
           </form>
         </div>
-        <div className="-mt-8 mx-8 ">
+        <div className="-mt-8 mx-8 md:min-w-[230px] md:block hidden ">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
-            className=" w-full h-full fill-current text-salmon "
+            className=" w-full h-full fill-current text-salmon md:block hidden"
           >
             <g id="community">
               <path
