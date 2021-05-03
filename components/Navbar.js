@@ -29,7 +29,7 @@ export default function Navbar() {
   const [isOpen, setisOpen] = useState(false);
 
   return (
-    <div className="bg-navy">
+    <div className="dark:bg-darkNavy bg-navy">
       <nav className=" flex justify-between  py-7 items-center max-w-5xl w-fill mx-auto  px-8">
         <Link href="/">
           <a className="lowercase text-3xl font-semibold  leading-none tracking-widest text-salmon">

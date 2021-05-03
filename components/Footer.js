@@ -103,7 +103,7 @@ export default function Footer() {
             {footerLinks.map((links) => (
               <div className="flex flex-col space-y-3" key={links[0].name}>
                 {links.map((link) => (
-                  <Link href={link.target} key={link.target}>
+                  <Link href={link.target} key={link.name}>
                     {link.name}
                   </Link>
                 ))}

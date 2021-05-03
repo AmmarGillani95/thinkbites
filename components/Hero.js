@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <section className="bg-navy pt-8">
+    <section className="bg-navy dark:bg-darkNavy pt-8">
       <div className="flex max-w-5xl w-fill mx-auto  px-8 justify-between pt-6">
         <div className=" max-w-xl">
           <h2 className="  lg:text-3xl text-2xl  tracking-wider font-bold text-salmon ">

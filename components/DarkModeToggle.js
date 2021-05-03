@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 
-const initialColor = "white";
+const initialColor = "#ffffff";
 const finalColor = "#E6A490";
 
 const maskVariants = {
@@ -29,14 +29,12 @@ const centercircleVariants = {
 
 const linesVariants = {
   sun: {
-    fill: initialColor,
-    stroke: finalColor,
+    stroke: initialColor,
     scale: 0.9,
     rotate: 0,
     opacity: 0,
   },
   moon: {
-    fill: initialColor,
     stroke: finalColor,
     scale: 1,
     rotate: 45,
@@ -67,10 +65,10 @@ export default function DarkModeToggle() {
             width="24"
             height="24"
             viewBox="0 0 24 24"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="feather feather-sun"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="feather feather-sun"
             style={{ transform: "rotate(40deg)" }}
           >
             <mask id="mask">
@@ -79,7 +77,6 @@ export default function DarkModeToggle() {
                 cx="12"
                 cy="4"
                 r="9"
-                fill="black"
                 variants={maskVariants}
                 transition={{ type: "spring", duration: 0.8 }}
                 initial={theme === "light" ? "sun" : "moon"}
