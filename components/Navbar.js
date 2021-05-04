@@ -1,8 +1,9 @@
-import Link from "next/link";
+import NextLink from "./NextLink";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import DarkModeToggle from "./DarkModeToggle";
 import DesktopMenu from "./DesktopMenu";
+import MobileMenu from "./MobileMenu";
 
 const Navlinks = [
   { name: "articles", target: "#" },
@@ -28,36 +29,30 @@ const Navlinks = [
 export default function Navbar() {
   const [isOpen, setisOpen] = useState(false);
 
+  const setOpen = () => {
+    setisOpen(!isOpen);
+  };
+
   return (
     <div className="dark:bg-darkNavy bg-navy">
-      <nav className=" flex justify-between  py-7 items-center max-w-5xl w-fill mx-auto  px-8">
-        <Link href="/">
-          <a className="lowercase text-3xl font-semibold  leading-none tracking-widest text-salmon">
-            Thinkbites
-          </a>
-        </Link>
+      <nav className="flex justify-between  py-7 items-center max-w-5xl w-fill mx-auto  px-8 bg">
+        <NextLink
+          href="/"
+          className="lowercase text-3xl font-semibold  leading-none tracking-widest text-salmon"
+        >
+          Thinkbites
+        </NextLink>
         <div className="space-x-4 leading-none  flex items-center ">
           <div className="lg:flex hidden ">
             <DesktopMenu links={Navlinks} />
           </div>
 
           <div className="lg:hidden  flex items-center">
-            <button>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6 text-salmon"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
-            </button>
+            <MobileMenu
+              links={Navlinks}
+              setOpen={() => setOpen}
+              isOpen={isOpen}
+            />
           </div>
           <DarkModeToggle />
         </div>
