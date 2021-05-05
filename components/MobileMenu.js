@@ -1,95 +1,96 @@
 import NextLink from "./NextLink";
 import { motion } from "framer-motion";
 
-const top = {
-  closed: {
-    rotate: 0,
-    translateY: 0,
-  },
-  opened: {
-    rotate: 45,
-    translateY: 2,
-  },
-};
-const center = {
-  closed: {
-    opacity: 1,
-  },
-  opened: {
-    opacity: 0,
-  },
-};
-
-const bottom = {
-  closed: {
-    rotate: 0,
-    translateY: 0,
-  },
-  opened: {
-    rotate: -45,
-    translateY: -2,
-  },
-};
-
-export default function MobileMenu({ setOpen, isOpen }) {
+export default function MobileMenu({ isOpen, links }) {
   const variant = isOpen ? "opened" : "closed";
-
-  const color = "#E6A490";
-  const strokeWidth = "2";
-  const width = "16";
-  const height = "16";
-  const unitHeight = 4;
-  const unitWidth = (unitHeight * width) / height;
-
-  const lineProps = {
-    stroke: color,
-    strokeWidth: strokeWidth,
-    vectorEffect: "non-scaling-stroke",
-    initial: "closed",
-    animate: variant,
-    transition: { type: "spring", stiffness: 260, damping: 20 },
-    strokeLinecap: "round",
+  const overlay = {
+    closed: {
+      height: "100vh",
+      width: 0,
+      zIndex: 40,
+      opacity: 0,
+    },
+    opened: {
+      height: "100vh",
+      width: "100vw",
+      zIndex: 40,
+      opacity: 100,
+    },
   };
+
+  const stagger = {
+    animate: {
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const fadeinUp = {
+    initial: {
+      y: 60,
+      opacity: 0,
+    },
+    animate: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.7,
+      },
+    },
+  };
+
   return (
-    <div>
-      {/* <div className="fixed w-full h-full top-0 left-0 z-20 bg-navy"></div> */}
-      <button className="focus:outline-none z-30" onClick={setOpen()}>
-        <motion.svg
-          viewBox={`0 0 ${unitWidth} ${unitHeight}`}
-          overflow="visible"
-          // preserveAspectRatio="none"
-          width={width}
-          height={height}
-          transition={{ type: "spring", stiffness: 260, damping: 20 }}
+    <motion.div
+      animate={variant}
+      variants={overlay}
+      initial={{ opacity: 0 }}
+      transition={{ type: "ease", duration: 0.4, staggerChildren: 0.5 }}
+      className="w-full h-full absolute top-0 left-0 bg-salmon dark:bg-navy inset-0 z-40"
+      //   className={`${
+      //     isOpen ? "fixed overflow-hidden h-screen w-full" : "h-0"
+      //   }  inset-0 z-40 dark:bg-navy bg-salmon block lg:hidden`}
+    >
+      {isOpen && (
+        <motion.div
+          variants={stagger}
+          className="mt-24 flex flex-col max-w-5xl w-fill mx-auto  px-8 space-y-6"
         >
-          <motion.line
-            x1="0"
-            x2={unitWidth}
-            y1="0"
-            y2="0"
-            variants={top}
-            {...lineProps}
-            style={{ originX: "2px", originY: "0px" }}
-          />
-          <motion.line
-            x1="0"
-            x2={unitWidth}
-            y1="2"
-            y2="2"
-            variants={center}
-            {...lineProps}
-          />
-          <motion.line
-            x1="0"
-            x2={unitWidth}
-            y1="4"
-            y2="4"
-            variants={bottom}
-            {...lineProps}
-            style={{ originX: "2px", originY: "4px" }}
-          />
-        </motion.svg>
-      </button>
-    </div>
+          {links.map((link) => (
+            <motion.div
+              variants={stagger}
+              animate="animate"
+              className="flex flex-col"
+            >
+              <motion.div
+                variants={fadeinUp}
+                initial="initial"
+                animate="animate"
+              >
+                <NextLink
+                  href={link.target}
+                  key={link.name}
+                  className="dark:text-white text-navy font-regular capitalize text-2xl tracking-wider  px-2 py-1 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-salmon dark:hover:text-salmon hover:text-black transition-colors"
+                >
+                  {link.name}
+                </NextLink>
+              </motion.div>
+              {link.subMenu &&
+                link.subMenu.map((link) => (
+                  <div>
+                    <NextLink
+                      href={link.target}
+                      key={link.name}
+                      className="dark:text-white text-navy font-regular capitalize text-md tracking-wider ml-8 px-2 py-1 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-salmon dark:hover:text-salmon hover:text-black transition-colors"
+                    >
+                      {link.name}
+                    </NextLink>
+                  </div>
+                ))}
+            </motion.div>
+          ))}
+        </motion.div>
+      )}
+    </motion.div>
   );
 }

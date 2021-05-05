@@ -1,8 +1,9 @@
 import NextLink from "./NextLink";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import DarkModeToggle from "./DarkModeToggle";
 import DesktopMenu from "./DesktopMenu";
+import MobileMenuToggle from "./MobileMenuToggle";
 import MobileMenu from "./MobileMenu";
 
 const Navlinks = [
@@ -33,6 +34,14 @@ export default function Navbar() {
     setisOpen(!isOpen);
   };
 
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
+  }, [isOpen]);
+
   return (
     <div className="dark:bg-darkNavy bg-navy">
       <nav className="flex justify-between  py-7 items-center max-w-5xl w-fill mx-auto  px-8 bg">
@@ -42,20 +51,20 @@ export default function Navbar() {
         >
           Thinkbites
         </NextLink>
-        <div className="space-x-4 leading-none  flex items-center ">
+        <div className="space-x-4 leading-none  flex items-center">
           <div className="lg:flex hidden ">
             <DesktopMenu links={Navlinks} />
           </div>
-
-          <div className="lg:hidden  flex items-center">
-            <MobileMenu
-              links={Navlinks}
-              setOpen={() => setOpen}
-              isOpen={isOpen}
-            />
+          <div className="fixed lg:static top-7 right-6 z-50">
+            <div className="flex items-center space-x-4 lg:space-x-0  py-1 px-2 rounded-md bg-darkNavy shadow lg:py-0 lg:px-0 lg:bg-transparent lg:shadow-none">
+              <div className="lg:hidden  flex items-center">
+                <MobileMenuToggle setOpen={() => setOpen} isOpen={isOpen} />
+              </div>
+              <DarkModeToggle />
+            </div>
           </div>
-          <DarkModeToggle />
         </div>
+        <MobileMenu links={Navlinks} isOpen={isOpen} />
       </nav>
     </div>
   );
