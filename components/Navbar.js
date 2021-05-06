@@ -64,7 +64,9 @@ export default function Navbar() {
             </div>
           </div>
         </div>
-        <MobileMenu links={Navlinks} isOpen={isOpen} />
+        <div className="lg:hidden">
+          <MobileMenu links={Navlinks} isOpen={isOpen} />
+        </div>
       </nav>
     </div>
   );
