@@ -1,96 +1,108 @@
 import NextLink from "./NextLink";
+import React from "react";
 import { motion } from "framer-motion";
 
+const stagger = {
+  initial: {
+    transition: {
+      staggerChildren: 0.025,
+    },
+  },
+  animate: {
+    transition: {
+      staggerChildren: 0.05,
+    },
+  },
+};
+
+const overlayVariant = {
+  initial: {
+    x: "-100%",
+
+    transition: {
+      duration: 0.6,
+
+      easing: "easeOut",
+    },
+  },
+  animate: {
+    x: 0,
+
+    transition: {
+      duration: 0.4,
+      easing: "easeIn",
+    },
+  },
+};
+
+const linksVariant = {
+  initial: {
+    x: "-30%",
+    opacity: 0,
+    transition: {
+      duration: 0.3,
+      easing: "easeIn",
+    },
+  },
+  animate: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+      easing: "easeIn",
+    },
+  },
+};
+
 export default function MobileMenu({ isOpen, links }) {
-  const variant = isOpen ? "opened" : "closed";
-  const overlay = {
-    closed: {
-      height: "100vh",
-      width: 0,
-      zIndex: 40,
-      opacity: 0,
-    },
-    opened: {
-      height: "100vh",
-      width: "100vw",
-      zIndex: 40,
-      opacity: 100,
-    },
-  };
-
-  const stagger = {
-    animate: {
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const fadeinUp = {
-    initial: {
-      y: 60,
-      opacity: 0,
-    },
-    animate: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.7,
-      },
-    },
-  };
-
   return (
-    <motion.div
-      animate={variant}
-      variants={overlay}
-      initial={{ opacity: 0 }}
-      transition={{ type: "ease", duration: 0.4, staggerChildren: 0.5 }}
-      className="w-full h-full absolute top-0 left-0 bg-salmon dark:bg-navy inset-0 z-40"
-      //   className={`${
-      //     isOpen ? "fixed overflow-hidden h-screen w-full" : "h-0"
-      //   }  inset-0 z-40 dark:bg-navy bg-salmon block lg:hidden`}
-    >
-      {isOpen && (
+    <>
+      <motion.div
+        initial="initial"
+        animate={isOpen ? "animate" : "initial"}
+        variants={overlayVariant}
+        className="w-screen h-screen fixed top-0 left-0 bg-salmon dark:bg-navy inset-0 z-40"
+      ></motion.div>
+      <div className="w-screen h-screen fixed top-0 left-0  inset-0 z-40">
         <motion.div
+          initial="initial"
+          animate={isOpen ? "animate" : "initial"}
           variants={stagger}
-          className="mt-24 flex flex-col max-w-5xl w-fill mx-auto  px-8 space-y-6"
+          className="mt-24 flex flex-col max-w-4xl w-fill mx-auto  px-14 z-50"
         >
           {links.map((link) => (
-            <motion.div
-              variants={stagger}
-              animate="animate"
-              className="flex flex-col"
-            >
+            <React.Fragment key={link.name}>
               <motion.div
-                variants={fadeinUp}
-                initial="initial"
-                animate="animate"
+                variants={linksVariant}
+                key={link.name}
+                className=" mt-5"
               >
                 <NextLink
-                  href={link.target}
-                  key={link.name}
                   className="dark:text-white text-navy font-regular capitalize text-2xl tracking-wider  px-2 py-1 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-salmon dark:hover:text-salmon hover:text-black transition-colors"
+                  href={link.target}
                 >
                   {link.name}
                 </NextLink>
               </motion.div>
               {link.subMenu &&
                 link.subMenu.map((link) => (
-                  <div>
+                  <motion.div
+                    variants={linksVariant}
+                    key={link.name}
+                    className="mt-2"
+                  >
                     <NextLink
                       href={link.target}
-                      key={link.name}
                       className="dark:text-white text-navy font-regular capitalize text-md tracking-wider ml-8 px-2 py-1 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-salmon dark:hover:text-salmon hover:text-black transition-colors"
                     >
                       {link.name}
                     </NextLink>
-                  </div>
+                  </motion.div>
                 ))}
-            </motion.div>
+            </React.Fragment>
           ))}
         </motion.div>
-      )}
-    </motion.div>
+      </div>
+    </>
   );
 }
