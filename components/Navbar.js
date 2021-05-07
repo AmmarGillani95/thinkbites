@@ -7,7 +7,7 @@ import MobileMenuToggle from "./MobileMenuToggle";
 import MobileMenu from "./MobileMenu";
 
 const Navlinks = [
-  { name: "articles", target: "#" },
+  { name: "articles", target: "/test" },
   {
     name: "projects",
     target: "#",
