@@ -49,9 +49,22 @@ export default function MobileMenuToggle({ setOpen, isOpen }) {
           animate={isOpen ? "opened" : "closed"}
           className="text-salmon dark:text-salmon  fill-current w-6 h-6 "
         >
-          <motion.rect variants={top} width="24" height="2" rx="1" />
+          <motion.rect
+            variants={top}
+            width="24"
+            height="2"
+            rx="1"
+            style={{ originX: "12px", originY: "1px" }}
+          />
           <motion.rect variants={center} y="7" width="24" height="2" rx="1" />
-          <motion.rect variants={bottom} y="14" width="24" height="2" rx="1" />
+          <motion.rect
+            variants={bottom}
+            y="14"
+            width="24"
+            height="2"
+            rx="1"
+            style={{ originX: "12px", originY: "15px" }}
+          />
         </motion.svg>
       </button>
     </div>
