@@ -5,18 +5,22 @@ const top = {
   closed: {
     rotate: 0,
     translateY: 0,
+    transition: { type: "spring", stiffness: 260, damping: 20 },
   },
   opened: {
     rotate: 45,
-    translateY: 2,
+    translateY: 7,
+    transition: { type: "spring", stiffness: 260, damping: 20 },
   },
 };
 const center = {
   closed: {
     opacity: 1,
+    transition: { type: "spring", stiffness: 260, damping: 20 },
   },
   opened: {
     opacity: 0,
+    transition: { type: "spring", stiffness: 260, damping: 20 },
   },
 };
 
@@ -24,70 +28,30 @@ const bottom = {
   closed: {
     rotate: 0,
     translateY: 0,
+    transition: { type: "spring", stiffness: 260, damping: 20 },
   },
+
   opened: {
     rotate: -45,
-    translateY: -2,
+    translateY: -7,
+    transition: { type: "spring", stiffness: 260, damping: 20 },
   },
 };
 
 export default function MobileMenuToggle({ setOpen, isOpen }) {
-  const variant = isOpen ? "opened" : "closed";
-
-  const color = "#E6A490";
-  const strokeWidth = "2";
-  const width = "16";
-  const height = "16";
-  const unitHeight = 4;
-  const unitWidth = (unitHeight * width) / height;
-
-  const lineProps = {
-    className: "text-salmon",
-    stroke: "currentColor",
-    strokeWidth: strokeWidth,
-    vectorEffect: "non-scaling-stroke",
-    initial: "closed",
-    animate: variant,
-    transition: { type: "spring", stiffness: 260, damping: 20 },
-    strokeLinecap: "round",
-  };
   return (
     <div>
       <button className="focus:outline-none z-30" onClick={setOpen()}>
         <motion.svg
-          viewBox={`0 0 ${unitWidth} ${unitHeight}`}
-          overflow="visible"
-          preserveAspectRatio="none"
-          width={width}
-          height={height}
-          transition={{ type: "spring", stiffness: 260, damping: 20 }}
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 16"
+          initial="closed"
+          animate={isOpen ? "opened" : "closed"}
+          className="text-salmon dark:text-salmon  fill-current w-6 h-6 "
         >
-          <motion.line
-            x1="0"
-            x2={unitWidth}
-            y1="0"
-            y2="0"
-            variants={top}
-            {...lineProps}
-            style={{ originX: "2px", originY: "0px" }}
-          />
-          <motion.line
-            x1="0"
-            x2={unitWidth}
-            y1="2"
-            y2="2"
-            variants={center}
-            {...lineProps}
-          />
-          <motion.line
-            x1="0"
-            x2={unitWidth}
-            y1="4"
-            y2="4"
-            variants={bottom}
-            {...lineProps}
-            style={{ originX: "2px", originY: "4px" }}
-          />
+          <motion.rect variants={top} width="24" height="2" rx="1" />
+          <motion.rect variants={center} y="7" width="24" height="2" rx="1" />
+          <motion.rect variants={bottom} y="14" width="24" height="2" rx="1" />
         </motion.svg>
       </button>
     </div>

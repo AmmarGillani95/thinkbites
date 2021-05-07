@@ -1,89 +1,63 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 
-const stagger = {
-  animate: {
-    transition: {
-      staggerChildren: 0.2,
-    },
+const top = {
+  closed: {
+    rotate: 0,
+    translateY: 0,
+    transition: { type: "spring", stiffness: 260, damping: 20 },
   },
-  initial: {
-    transition: {
-      staggerChildren: 0.2,
-    },
+  opened: {
+    rotate: 45,
+    translateY: 7,
+    transition: { type: "spring", stiffness: 260, damping: 20 },
   },
 };
-
-const divVariant = {
-  initial: {
-    x: "-100%",
-    opacity: 0,
-    transition: {
-      duration: 0.7,
-      easing: "ease",
-    },
-  },
-  animate: {
-    x: 0,
+const center = {
+  closed: {
     opacity: 1,
-    transition: {
-      duration: 0.7,
-      easing: "easeInOut",
-    },
+    transition: { type: "spring", stiffness: 260, damping: 20 },
+  },
+  opened: {
+    opacity: 0,
+    transition: { type: "spring", stiffness: 260, damping: 20 },
   },
 };
 
+const bottom = {
+  closed: {
+    rotate: 0,
+    translateY: 0,
+    transition: { type: "spring", stiffness: 260, damping: 20 },
+  },
+
+  opened: {
+    rotate: -45,
+    translateY: -7,
+    transition: { type: "spring", stiffness: 260, damping: 20 },
+  },
+};
 export default function Test() {
   const [isOpen, setisOpen] = useState(false);
   return (
-    <div>
-      <motion.div
-        variants={stagger}
-        initial="initial"
-        animate={isOpen ? "animate" : "initial"}
-        className="flex flex-col space-y-4 justify-center items-center max-w-2xl h-screen "
-      >
-        <div>
-          <motion.div
-            variants={divVariant}
-            className="bg-salmon text-lg text-navy px-4 py-2"
-          >
-            One
-          </motion.div>
-          <motion.div
-            variants={divVariant}
-            className="bg-salmon text-lg text-navy px-4 py-2"
-          >
-            One
-          </motion.div>
-        </div>
-        <motion.div
-          variants={divVariant}
-          className="bg-salmon text-lg text-navy px-4 py-2"
-        >
-          One
-        </motion.div>
-        <motion.div
-          variants={divVariant}
-          className="bg-salmon text-lg text-navy px-4 py-2"
-        >
-          One
-        </motion.div>
-        <motion.div
-          variants={divVariant}
-          className="bg-salmon text-lg text-navy px-4 py-2"
-        >
-          One
-        </motion.div>
-      </motion.div>
+    <div className="flex flex-col max-w-4xl px-8 justify-center items-center h-screen">
       <button
         onClick={() => {
           setisOpen(!isOpen);
         }}
       >
-        Start
+        <motion.svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 16"
+          initial="closed"
+          animate={isOpen ? "opened" : "closed"}
+          className="text-salmon dark:text-salmon  fill-current w-6 h-6 "
+        >
+          <motion.rect variants={top} width="24" height="2" rx="1" />
+          <motion.rect variants={center} y="7" width="24" height="2" rx="1" />
+          <motion.rect variants={bottom} y="14" width="24" height="2" rx="1" />
+        </motion.svg>
       </button>
-      <p>{isOpen ? "Open" : "Close"}</p>
     </div>
   );
 }
