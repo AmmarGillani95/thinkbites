@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import ThinkbitesHeroSVG from "./ThinkbitesHeroSvg";
+import ThinkbitesHeroSVG from "./ThinkbitesHeroSVG";
 
 export default function Hero() {
   const segments = ["personal", "spiritual", "community"];

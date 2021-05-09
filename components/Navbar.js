@@ -5,7 +5,7 @@ import DarkModeToggle from "./DarkModeToggle";
 import DesktopMenu from "./DesktopMenu";
 import MobileMenuToggle from "./MobileMenuToggle";
 import MobileMenu from "./MobileMenu";
-import ThinkbitesHeroSVG from "./ThinkbitesHeroSvg";
+import ThinkbitesHeroSVG from "./ThinkbitesHeroSVG";
 
 const Navlinks = [
   { name: "articles", target: "/test" },
