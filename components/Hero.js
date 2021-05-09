@@ -1,15 +1,54 @@
+import { useState, useEffect } from "react";
 import ThinkbitesHeroSVG from "./ThinkbitesHeroSvg";
 
 export default function Hero() {
+  const segments = ["personal", "spiritual", "community"];
+  const [highlight, setHighlight] = useState("");
+
+  const highlighter = () => {
+    if (highlight === "" || highlight === "community") {
+      setHighlight(segments[0]);
+    } else {
+      setHighlight(segments[segments.indexOf(highlight) + 1]);
+    }
+  };
+
+  useEffect(() => {
+    setTimeout(highlighter, 2000);
+  }, [highlight]);
+
   return (
-    <section className="bg-navy dark:bg-darkNavy pt-8">
-      <div className="flex max-w-5xl w-fill mx-auto  px-8 justify-between pt-6">
-        <div className=" max-w-xl">
-          <h2 className="  lg:text-3xl text-2xl  tracking-wider font-bold text-salmon ">
+    <section className="bg-navy dark:bg-darkNavy md:pt-8">
+      <div className="relative flex max-w-5xl w-fill mx-auto  px-8 justify-between pt-6">
+        <div className=" md:max-w-xl ">
+          <h2 className="  lg:text-3xl md:text-2xl  text-3xl tracking-wider font-bold text-salmon ">
             Curated for the conscious soul.
           </h2>
-          <span className=" lg:text-3xl text-2xl    tracking-wider  font-bold text-salmon">
-            Personal, spiritual, and community development
+          <span className=" lg:text-3xl md:text-2xl text-3xl    tracking-wider  font-bold text-salmon md:text-[#46658c]">
+            <span
+              className={`md:${
+                highlight === "personal" ? "text-salmon" : ""
+              } transition-colors duration-1000 ease-in-out`}
+            >
+              Personal
+            </span>
+            ,{" "}
+            <span
+              className={`md:${
+                highlight === "spiritual" ? "text-salmon" : ""
+              } transition-colors duration-1000 ease-in-out`}
+            >
+              Spiritual
+            </span>
+            , and{" "}
+            <span
+              className={`md:${
+                highlight === "community" ? "text-salmon" : ""
+              } transition-colors duration-1000 ease-in-out`}
+            >
+              Community
+            </span>{" "}
+            development
           </span>
           <p className=" text-lg  font-normal tracking-normal text-white mt-5">
             Subscribe to our monthly newsletter for our latest work and content
@@ -42,8 +81,8 @@ export default function Hero() {
             </div>
           </form>
         </div>
-        <div className="-mt-8 mx-8 md:min-w-[230px] md:block hidden ">
-          <ThinkbitesHeroSVG />
+        <div className="-mt-8 mx-8 md:min-w-[230px] hidden md:block">
+          <ThinkbitesHeroSVG highlight={highlight} />
         </div>
       </div>
       <div className="w-full  relative h-24">

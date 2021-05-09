@@ -1,14 +1,22 @@
-export default function ThinkbitesHeroSVG() {
+export default function ThinkbitesHeroSVG({ highlight, color }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 23.9999"
-      className=" w-full h-full md:block hidden fill-current text-red-500 "
+      className={`w-full h-full fill-current ${
+        color ? `text-${color}` : "text-[#475b73]"
+      } `}
     >
-      <g id="community" className="hover:text-red-500">
+      <g
+        id="community"
+        className={`${
+          highlight === "community" ? "text-salmon" : ""
+        } fill-current transition-colors duration-1000 ease-in-out`}
+      >
         <path
           d="M12,23.99995a12,12,0,1,1,12-11.9999A12.01353,12.01353,0,0,1,12,23.99995ZM12,1.07148A10.92852,10.92852,0,1,0,22.92857,12.00005,10.94093,10.94093,0,0,0,12,1.07148Z"
           transform="translate(0 -0.00005)"
+          className="fill-current "
         />
       </g>
       <g id="spiritual">
@@ -21,14 +29,25 @@ export default function ThinkbitesHeroSVG() {
           transform="translate(0 -0.00005)"
         />
       </g>
-      <g id="heart" className="">
+      <g
+        id="heart"
+        className={`${
+          highlight === "spiritual" ? "text-salmon" : ""
+        } fill-current transition-colors duration-1000 ease-in-out`}
+      >
         <path
           d="M18.32812,5.66687A4.64192,4.64192,0,0,0,12,5.7533a4.6414,4.6414,0,0,0-6.32812-.08643,4.64242,4.64242,0,0,0,.10693,6.35107c.02881.03321.05615.06788.08008.09961a1.40328,1.40328,0,0,0,.11865.13819l.54248.54345.00635.00684H6.52588l5.21191,5.21143a1.38421,1.38421,0,0,0,.13135.1123l.01074.00879c.03174.02441.064.0498.09424.07715l.02344.02051.02344-.02051c.03125-.02832.06543-.05371.10058-.08106a1.22013,1.22013,0,0,0,.13916-.11718l5.76172-5.76075a1.21979,1.21979,0,0,0,.10352-.12011l.01367-.01758c.03027-.04053.05664-.07227.082-.1001A4.64413,4.64413,0,0,0,18.32812,5.66687Zm.06641,3.07666a3.944,3.944,0,0,1-.96582,2.44824c-.02246.02588-.043.05225-.06348.07862l-.02246.02832a1.82324,1.82324,0,0,1-.12793.1499L11.99951,16.663,7.94824,12.61218,6.78516,11.44812a1.85125,1.85125,0,0,1-.13184-.1543l-.01465-.019c-.022-.02783-.04394-.05566-.06689-.08252A3.95155,3.95155,0,0,1,5.606,8.743,2.99217,2.99217,0,0,1,8.667,5.6c.02686,0,.0542,0,.08155.001a3.94308,3.94308,0,0,1,2.44873.96533c.03173.02686.064.05274.09668.07813a1.78781,1.78781,0,0,1,.15966.13525l.53955.54L12,7.327l.54639-.54639a1.80073,1.80073,0,0,1,.15234-.12988l.02295-.01856c.02734-.02148.05469-.043.08105-.06543A3.95273,3.95273,0,0,1,15.252,5.601c.02735-.00049.05469-.001.082-.001a2.99293,2.99293,0,0,1,3.06055,3.14355Z"
           transform="translate(0 -0.00005)"
+          className="fill-current"
         />
       </g>
-      <g id="personal">
-        <circle cx="12" cy="11.99995" r="1.82143" />
+      <g
+        id="personal"
+        className={`${
+          highlight === "personal" ? "text-salmon" : ""
+        } fill-current transition-colors duration-1000 ease-in-out`}
+      >
+        <circle cx="12" cy="11.99995" r="1.82143" className="fill-current" />
       </g>
     </svg>
   );

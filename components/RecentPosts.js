@@ -5,7 +5,7 @@ import { recentpostsData } from "../public/dummy";
 
 export default function RecentPosts() {
   return (
-    <section className="max-w-5xl w-fill mx-auto px-8 bg-white dark:bg-navy flex flex-col">
+    <section className="max-w-xl md:max-w-5xl w-fill mx-auto px-8 bg-white dark:bg-navy flex flex-col">
       <h2 className="block mx-auto text-salmon font-medium  text-sm tracking-widest uppercase ">
         Recent
       </h2>
@@ -24,11 +24,11 @@ export default function RecentPosts() {
               />
             </div>
             <div className="mt-3">
-              <h3 className="font-bold tracking-wider text-lg leading-snug">
+              <h3 className="font-bold tracking-wide text-base leading-tight">
                 {post.title}
               </h3>
-              <div className="flex flex-col  text-gray-500 mt-1">
-                <span className="text-base">{post.author}</span>
+              <div className="flex flex-col  text-gray-500 mt-0.5">
+                <span className="text-sm">{post.author}</span>
                 <span className="text-xs">{`${post.date} • ${post.read} read`}</span>
               </div>
               <p className="mt-2  text-xs font-medium tracking-wider leading-normal">
