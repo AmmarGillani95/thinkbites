@@ -26,24 +26,24 @@ export default function Hero() {
           </h2>
           <span className=" lg:text-3xl md:text-2xl text-3xl    tracking-wider  font-bold text-salmon md:text-[#46658c]">
             <span
-              className={`md:${
-                highlight === "personal" ? "text-salmon" : ""
+              className={`${
+                highlight === "personal" ? "md:text-salmon" : ""
               } transition-colors duration-1000 ease-in-out`}
             >
               Personal
             </span>
             ,{" "}
             <span
-              className={`md:${
-                highlight === "spiritual" ? "text-salmon" : ""
+              className={`${
+                highlight === "spiritual" ? "md:text-salmon" : ""
               } transition-colors duration-1000 ease-in-out`}
             >
               Spiritual
             </span>
             , and{" "}
             <span
-              className={`md:${
-                highlight === "community" ? "text-salmon" : ""
+              className={`${
+                highlight === "community" ? "md:text-salmon" : ""
               } transition-colors duration-1000 ease-in-out`}
             >
               Community
