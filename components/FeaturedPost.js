@@ -23,7 +23,7 @@ export default function FeaturedPost() {
         <h2 className="text-salmon font-medium  text-sm tracking-widest uppercase hidden md:block">
           Featured
         </h2>
-        <h3 className="text-navy dark:text-white font-bold text-xl  leading-tight tracking-wide mt-2">
+        <h3 className="text-navy dark:text-white font-bold text-base md:text-xl leading-tight tracking-wide mt-2">
           Soft Skills: The Importance of Personal Development
         </h3>
 
@@ -31,7 +31,7 @@ export default function FeaturedPost() {
           <span className="text-sm">Omar Usman</span>
           <span className=" text-xs">April 10, 2021 • 7 min read</span>
         </div>
-        <p className="mt-1  text-base font-medium text-navy dark:text-white">
+        <p className="mt-2 text-xs tracking-wider leading-normal md:tracking-normal md:leading-normal md:text-base font-medium text-navy dark:text-white">
           Investing in your personal growth means intentionally focusing on
           three key areas: education, experience, and relationships. No one else
           on earth shares the exact same intersection of those three elements as
