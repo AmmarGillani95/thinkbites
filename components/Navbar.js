@@ -61,7 +61,7 @@ export default function Navbar() {
           <div className="lg:flex hidden ">
             <DesktopMenu links={Navlinks} />
           </div>
-          <div className="fixed lg:static md:top-8 top-10 right-6 z-50">
+          <div className="fixed lg:static md:top-8 top-8 right-6 z-50">
             <div className="flex items-center space-x-4 lg:space-x-0  py-1 px-2 rounded-md bg-darkNavy shadow lg:py-0 lg:px-0 lg:bg-transparent lg:shadow-none">
               <div className="lg:hidden  flex items-center">
                 <MobileMenuToggle setOpen={() => setOpen} isOpen={isOpen} />

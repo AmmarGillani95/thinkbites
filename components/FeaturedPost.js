@@ -7,6 +7,7 @@ export default function FeaturedPost() {
       <h2 className="text-salmon font-medium  text-sm tracking-widest uppercase block md:hidden text-center mb-4">
         Featured
       </h2>
+
       <div className=" md:w-6/12 h-full md:mr-16 shadow-2xl">
         <Image
           src="https://thinkbites.org/wp-content/uploads/2021/01/381CEEAF-5F36-4438-A58C-DF6D60AD176B-2.jpg"

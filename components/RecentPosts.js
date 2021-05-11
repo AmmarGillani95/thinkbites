@@ -5,11 +5,11 @@ import { recentpostsData } from "../public/dummy";
 
 export default function RecentPosts() {
   return (
-    <section className="max-w-xl md:max-w-5xl w-fill mx-auto px-8 bg-white dark:bg-navy flex flex-col">
+    <section className="max-w-xl md:max-w-5xl  mx-auto px-8 bg-white dark:bg-navy flex flex-col">
       <h2 className="block mx-auto text-salmon font-medium  text-sm tracking-widest uppercase ">
         Recent
       </h2>
-      <div className="grid grid-cols-1 grid-rows-3 md:grid-cols-3 md:grid-rows-1 gap-16 mt-6 text-navy dark:text-white">
+      <div className="grid grid-cols-1 auto-rows-max  gap-y-16 md:grid-cols-3 md:grid-rows-1  mt-6 text-navy dark:text-white">
         {recentpostsData.map((post) => (
           <article key={post.title}>
             <div className="shadow-md">
