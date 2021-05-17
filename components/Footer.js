@@ -23,7 +23,7 @@ const footerLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-salmon dark:bg-darkNavy pt-12 pb-8 mt-20">
+    <footer className="bg-salmon dark:bg-darkNavy pt-12 pb-8 mt-auto">
       <div className="max-w-5xl w-fill mx-auto px-8 flex flex-col text-navy dark:text-gray-400">
         <div className="flex md:flex-row flex-col  items-center">
           <div className="   md:w-72">

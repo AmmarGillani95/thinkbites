@@ -20,7 +20,7 @@ export default function Container(props) {
   };
 
   return (
-    <div className="relative">
+    <div className="relative flex flex-col w-full  h-screen">
       <Head>
         <title>{meta.title}</title>
         <meta name="robots" content="follow, index" />
@@ -42,7 +42,7 @@ export default function Container(props) {
         )}
       </Head>
       <Navbar />
-      <main className="  antialiased ">{children}</main>
+      <main className="  antialiased  pb-16">{children}</main>
       <Footer />
     </div>
   );

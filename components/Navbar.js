@@ -8,7 +8,7 @@ import MobileMenu from "./MobileMenu";
 import ThinkbitesHeroSVG from "./ThinkbitesHeroSVG";
 
 const Navlinks = [
-  { name: "articles", target: "/test" },
+  { name: "articles", target: "/articles" },
   {
     name: "projects",
     target: "#",
