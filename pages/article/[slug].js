@@ -10,7 +10,7 @@ export default function Article({ article }) {
         <h1>{article.title}</h1>
         <div
           dangerouslySetInnerHTML={{ __html: article.content }}
-          className="prose dark:text-white text-navy"
+          className=" prose  prose-md prose-yellow dark:text-white text-navy"
         ></div>
       </div>
     </Container>
