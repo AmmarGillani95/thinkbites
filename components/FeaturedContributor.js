@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function FeaturedContributor() {
   return (
-    <section className=" max-w-xl md:max-w-3xl w-fill mx-auto px-8 bg-white dark:bg-navy flex flex-col">
+    <section className=" max-w-xl md:max-w-3xl w-fill mx-auto bg-white dark:bg-navy flex flex-col">
       <h2 className="text-salmon font-medium  text-sm tracking-widest uppercase block md:hidden text-center mb-6">
         Featured Contributor
       </h2>

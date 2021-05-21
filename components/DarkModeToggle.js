@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 
 const initialColor = "#ffffff";
-const finalColor = "#E6A490";
+const finalColor = "#0C1C36";
 
 const maskVariants = {
   sun: {

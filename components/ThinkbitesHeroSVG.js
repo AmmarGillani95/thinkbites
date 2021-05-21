@@ -4,13 +4,13 @@ export default function ThinkbitesHeroSVG({ highlight, color }) {
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 23.9999"
       className={`w-full h-full fill-current ${
-        color ? `text-${color}` : "text-[#475b73]"
+        color ? `${color}` : "text-[#475b73]"
       } `}
     >
       <g
         id="community"
         className={`${
-          highlight === "community" ? "text-salmon" : ""
+          highlight === "community" ? "text-navy dark:text-salmon" : ""
         } fill-current transition-colors duration-1000 ease-in-out`}
       >
         <path
@@ -32,7 +32,7 @@ export default function ThinkbitesHeroSVG({ highlight, color }) {
       <g
         id="heart"
         className={`${
-          highlight === "spiritual" ? "text-salmon" : ""
+          highlight === "spiritual" ? "text-navy dark:text-salmon" : ""
         } fill-current transition-colors duration-1000 ease-in-out`}
       >
         <path
@@ -44,7 +44,7 @@ export default function ThinkbitesHeroSVG({ highlight, color }) {
       <g
         id="personal"
         className={`${
-          highlight === "personal" ? "text-salmon" : ""
+          highlight === "personal" ? "text-navy dark:text-salmon" : ""
         } fill-current transition-colors duration-1000 ease-in-out`}
       >
         <circle cx="12" cy="11.99995" r="1.82143" className="fill-current" />

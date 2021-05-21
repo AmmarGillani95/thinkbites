@@ -47,7 +47,7 @@ export default function MobileMenuToggle({ setOpen, isOpen }) {
           viewBox="0 0 24 16"
           initial="closed"
           animate={isOpen ? "opened" : "closed"}
-          className="text-salmon dark:text-salmon  fill-current w-6 h-6 "
+          className="text-navy dark:text-salmon  fill-current w-6 h-6 "
         >
           <motion.rect
             variants={top}

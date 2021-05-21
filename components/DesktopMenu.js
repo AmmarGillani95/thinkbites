@@ -12,7 +12,7 @@ export default function DesktopMenu({ links }) {
               <NextLink
                 href={link.target}
                 key={link.name}
-                className="relative uppercase text-white font-regular text-base tracking-wider flex items-center px-2 py-1 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-salmon hover:text-salmon transition-colors"
+                className="relative uppercase text-navy dark:text-white font-regular text-base tracking-wider flex items-center px-2 py-1 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-salmon hover:text-salmon transition-colors"
               >
                 {link.name}
               </NextLink>
@@ -22,7 +22,7 @@ export default function DesktopMenu({ links }) {
               <Menu as="div" className="relative " key={link.name}>
                 {({ open }) => (
                   <>
-                    <Menu.Button className="uppercase text-white font-regular text-base tracking-wider flex items-center px-2 py-1 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-salmon hover:text-salmon transition-colors">
+                    <Menu.Button className="uppercase text-navy dark:text-white font-regular text-base tracking-wider flex items-center px-2 py-1 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-salmon hover:text-salmon transition-colors">
                       {link.name}
                       {link.subMenu && (
                         <svg

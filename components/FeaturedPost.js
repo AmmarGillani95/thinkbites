@@ -3,23 +3,24 @@ import Link from "next/link";
 
 export default function FeaturedPost() {
   return (
-    <article className=" max-w-xl md:max-w-5xl w-fill mx-auto  px-8 bg-white dark:bg-navy flex flex-col md:flex-row">
+    <article className=" max-w-xl md:max-w-5xl w-fill mx-auto  bg-white dark:bg-navy flex flex-col md:grid md:grid-cols-12 md:gap-8">
       <h2 className="text-salmon font-medium  text-sm tracking-widest uppercase block md:hidden text-center mb-4">
         Featured
       </h2>
-
-      <div className=" md:w-6/12 h-full md:mr-16 shadow-2xl">
-        <Image
-          src="https://thinkbites.org/wp-content/uploads/2021/01/381CEEAF-5F36-4438-A58C-DF6D60AD176B-2.jpg"
-          alt="Post featured image"
-          width={540}
-          height={321}
-          quality={60}
-          objectFit="cover"
-          layout="responsive"
-        />
+      <div className="md:col-span-6">
+        <div className="relative md:w-auto md:h-full aspect-h-3 aspect-w-5 ">
+          <Image
+            src="https://thinkbites.org/wp-content/uploads/2021/01/381CEEAF-5F36-4438-A58C-DF6D60AD176B-2.jpg"
+            alt="Post featured image"
+            // width={540}
+            // height={321}
+            quality={60}
+            objectFit="cover"
+            layout="fill"
+          />
+        </div>
       </div>
-      <div className="md:w-6/12 mt-4 md:mt-0">
+      <div className="md:col-span-6">
         <h2 className="text-salmon font-medium  text-sm tracking-widest uppercase hidden md:block">
           Featured
         </h2>

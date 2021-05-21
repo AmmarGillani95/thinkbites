@@ -18,16 +18,18 @@ export default function Hero() {
   }, [highlight]);
 
   return (
-    <section className="bg-navy dark:bg-darkNavy md:pt-8">
+    <section className="bg-salmon dark:bg-darkNavy md:pt-8">
       <div className="relative flex max-w-5xl w-fill mx-auto  px-8 justify-between pt-6">
         <div className=" md:max-w-xl ">
-          <h2 className="  lg:text-3xl md:text-2xl  text-3xl tracking-wider font-bold text-salmon ">
+          <h2 className="  lg:text-3xl md:text-2xl  text-3xl tracking-wider font-bold text-navy dark:text-salmon ">
             Curated for the conscious soul.
           </h2>
-          <span className=" lg:text-3xl md:text-2xl text-3xl    tracking-wider  font-bold text-salmon md:text-[#46658c]">
+          <span className=" lg:text-3xl md:text-2xl text-3xl    tracking-wider  font-bold text-white dark:text-[#46658c]">
             <span
               className={`${
-                highlight === "personal" ? "md:text-salmon" : ""
+                highlight === "personal"
+                  ? "md:dark:text-salmon  md:text-navy"
+                  : ""
               } transition-colors duration-1000 ease-in-out`}
             >
               Personal
@@ -35,7 +37,9 @@ export default function Hero() {
             ,{" "}
             <span
               className={`${
-                highlight === "spiritual" ? "md:text-salmon" : ""
+                highlight === "spiritual"
+                  ? "md:dark:text-salmon md:text-navy"
+                  : ""
               } transition-colors duration-1000 ease-in-out`}
             >
               Spiritual
@@ -43,14 +47,16 @@ export default function Hero() {
             , and{" "}
             <span
               className={`${
-                highlight === "community" ? "md:text-salmon" : ""
+                highlight === "community"
+                  ? "md:dark:text-salmon md:text-navy"
+                  : ""
               } transition-colors duration-1000 ease-in-out`}
             >
               Community
             </span>{" "}
             development
           </span>
-          <p className=" text-lg  font-normal tracking-normal text-white mt-5">
+          <p className=" text-lg  font-normal tracking-normal text-navy dark:text-white mt-5">
             Subscribe to our monthly newsletter for our latest work and content
             recommendations
           </p>
@@ -59,7 +65,7 @@ export default function Hero() {
             className="mt-5 block  max-w-xs"
           >
             <div className="flex  h-10  ">
-              <div className="w-full border-salmon border-2  rounded-l-md ">
+              <div className="w-full border-2 border-navy  dark:border-salmon    rounded-l-md ">
                 <label htmlFor="email" className="sr-only">
                   Email address
                 </label>
@@ -67,13 +73,13 @@ export default function Hero() {
                   id="email"
                   type="email"
                   placeholder="Email"
-                  className="w-full h-full bg-transparent text-gray-300 text-sm font-medium pl-2"
+                  className="w-full h-full bg-transparent placeholder-navy text-navy dark:text-gray-300 dark:placeholder-gray-300 text-sm font-medium pl-2"
                 />
               </div>
               <div className="    flex  justify-center    ">
                 <button
                   type="sumbit"
-                  className=" tracking-wider uppercase text-sm  font-semibold text-navy  w-20 bg-salmon rounded-r-md"
+                  className=" tracking-wider uppercase text-sm  font-semibold text-salmon dark:text-navy  w-20 dark:bg-salmon bg-navy rounded-r-md"
                 >
                   Sign Up
                 </button>

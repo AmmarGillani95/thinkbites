@@ -5,22 +5,22 @@ import { recentpostsData } from "../public/dummy";
 
 export default function RecentPosts() {
   return (
-    <section className="max-w-xl md:max-w-5xl  mx-auto px-8 bg-white dark:bg-navy flex flex-col">
+    <section className="max-w-xl md:max-w-5xl mx-auto bg-white dark:bg-navy flex flex-col">
       <h2 className="block mx-auto text-salmon font-medium  text-sm tracking-widest uppercase ">
         Recent
       </h2>
       <div className="grid grid-cols-1 auto-rows-max  gap-y-16  gap-x-12 md:grid-cols-3 md:grid-rows-1  mt-6 text-navy dark:text-white">
         {recentpostsData.map((post) => (
           <article key={post.title}>
-            <div className="shadow-md">
+            <div className="shadow-md relative aspect-h-3 aspect-w-5 ">
               <Image
                 src={post.imgSrc}
                 alt="Post featured image"
-                width={540}
-                height={321}
+                // width={540}
+                // height={321}
                 quality={60}
                 objectFit="cover"
-                layout="responsive"
+                layout="fill"
               />
             </div>
             <div className="mt-3">

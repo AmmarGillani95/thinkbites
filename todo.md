@@ -1,5 +1,5 @@
 [x] Design articles page page
-[] Make images into a tailwind aspect size component
+[x] Make images into a tailwind aspect size component
 [] Build articles page
 [] Design single article page
 [] Build single article page
