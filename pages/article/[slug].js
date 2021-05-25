@@ -1,4 +1,4 @@
-import { client, GetAllArticlesQuery } from "../../lib/client";
+import { client, GetAllArticlesAndCategoriesQuery } from "../../lib/client";
 import { gql } from "@apollo/client";
 import Container from "../../components/Container";
 
@@ -46,7 +46,9 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const response = await client.query({ query: GetAllArticlesQuery });
+  const response = await client.query({
+    query: GetAllArticlesAndCategoriesQuery,
+  });
   console.log(response.data.articles);
 
   //   return {
