@@ -45,7 +45,7 @@ export default function Navbar() {
 
   return (
     <div className="dark:bg-darkNavy bg-salmon">
-      <nav className="flex justify-between  py-6 md:py-8 items-center max-w-5xl w-fill mx-auto  px-8 bg">
+      <nav className="flex justify-between  py-4 md:py-5 items-center max-w-5xl w-fill mx-auto  px-8 bg">
         <NextLink
           href="/"
           className="flex items-center sm:space-x-3 md:space-x-4 lg:space-x-0"
