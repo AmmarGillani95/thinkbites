@@ -8,9 +8,9 @@ export default function ArticlesComponent({ articles, categories }) {
   useEffect(() => {}, [currentCategory]);
 
   return (
-    <section className="grid grid-cols-12">
-      <div className="flex flex-col space-y-4 col-span-8">
-        <div className="mt-4 flex flex-row space-x-6">
+    <section>
+      <div className="flex flex-col space-y-4">
+        <div className=" flex flex-row space-x-6">
           <button
             onClick={() => setCategory("all")}
             className={`text-navy uppercase border-b-2   tracking-widest text-xs focus:outline-none focus-visible:ring-2 focus-visible:ring-salmon  transition-colors  duration-300 ease-in-out ${
@@ -51,9 +51,6 @@ export default function ArticlesComponent({ articles, categories }) {
               </NextLink>
             ))}
         </div>
-      </div>
-      <div>
-        <p>Authors</p>
       </div>
     </section>
   );

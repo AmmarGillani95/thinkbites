@@ -1,14 +1,25 @@
-import { client, GetAllArticlesAndCategoriesQuery } from "../../lib/client";
+import {
+  client,
+  GetAllArticlesAndCategoriesAndAuthorsQuery,
+} from "../../lib/client";
 import Container from "../../components/Container";
 import FeaturedPost from "../../components/FeaturedPost";
 import ArticlesComponent from "../../components/ArticlesComponent";
+import AuthorsList from "../../components/AuthorsList";
 
-export default function Articles({ articles, categories }) {
+export default function Articles({ articles, categories, authors }) {
   return (
     <Container>
-      <div className="flex flex-col space-y-12 max-w-5xl w-fill mx-auto  px-8 mt-16">
+      <div className="flex flex-col space-y-16 max-w-5xl w-fill mx-auto  px-8 mt-16">
         <FeaturedPost />
-        <ArticlesComponent articles={articles} categories={categories} />
+        <div className="grid grid-cols-12 ">
+          <div className="col-span-8">
+            <ArticlesComponent articles={articles} categories={categories} />
+          </div>
+          <div className="col-span-4">
+            <AuthorsList authors={authors} />
+          </div>
+        </div>
       </div>
     </Container>
   );
@@ -16,13 +27,14 @@ export default function Articles({ articles, categories }) {
 
 export async function getStaticProps() {
   const response = await client.query({
-    query: GetAllArticlesAndCategoriesQuery,
+    query: GetAllArticlesAndCategoriesAndAuthorsQuery,
   });
 
   return {
     props: {
       articles: response.data.articles,
       categories: response.data.categories,
+      authors: response.data.authors,
     },
   };
 }
