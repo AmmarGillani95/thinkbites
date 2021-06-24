@@ -1,17 +1,50 @@
-import { client, GetAllArticlesAndCategoriesQuery } from "../../lib/client";
+import sanitizeHtml from "sanitize-html";
+import Image from "next/image";
+import {
+  client,
+  GetAllArticlesAndCategoriesAndAuthorsQuery,
+} from "@/lib/client";
 import { gql } from "@apollo/client";
-import Container from "../../components/Container";
+import Container from "@/components/Container";
+import ViewCounter from "@/components/ViewCounter";
 
 export default function Article({ article }) {
-  console.log(article);
   return (
     <Container>
-      <div className="relative flex flex-col max-w-5xl w-fill mx-auto  px-8 justify-between pt-6">
-        <h1>{article.title}</h1>
-        <div
-          dangerouslySetInnerHTML={{ __html: article.content }}
-          className=" prose  prose-md prose-yellow dark:text-white text-navy"
-        ></div>
+      <ViewCounter slug={article.slug} />
+      {/* <div className="shadow-md  relative h-[600px] bg-center">
+        <Image
+          src={article.image.image.url}
+          alt={article.image.alt}
+          // width={540}
+          // height={321}
+          quality={60}
+          objectFit="cover"
+          layout="fill"
+        />
+      </div> */}
+      <div className="relative flex flex-col max-w-5xl w-fill mx-auto  px-8 justify-between pt-8">
+        <div className="max-w-2xl mx-auto w-full">
+          <div className="shadow-md relative aspect-h-3 aspect-w-5">
+            <Image
+              src={article.image.image.url}
+              alt={article.image.alt}
+              // width={540}
+              // height={321}
+              quality={60}
+              objectFit="cover"
+              layout="fill"
+            />
+          </div>
+          <h1 className="font-semibold text-2xl text-center mt-6">
+            {article.title}
+          </h1>
+          <span></span>
+          <div
+            dangerouslySetInnerHTML={{ __html: article.content }}
+            className=" prose  prose-md prose-yellow dark:text-white text-navy mx-auto mt-6"
+          ></div>
+        </div>
       </div>
     </Container>
   );
@@ -26,6 +59,12 @@ export async function getStaticProps({ params }) {
         slug
         date
         content
+        image {
+          image {
+            url
+          }
+          alt
+        }
         authors {
           name
         }
@@ -47,7 +86,7 @@ export async function getStaticProps({ params }) {
 
 export async function getStaticPaths() {
   const response = await client.query({
-    query: GetAllArticlesAndCategoriesQuery,
+    query: GetAllArticlesAndCategoriesAndAuthorsQuery,
   });
   console.log(response.data.articles);
 

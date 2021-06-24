@@ -14,7 +14,10 @@ export default function Hero() {
   };
 
   useEffect(() => {
-    setTimeout(highlighter, 2000);
+    let timer = setTimeout(highlighter, 2000);
+    return () => {
+      clearTimeout(timer);
+    };
   }, [highlight]);
 
   return (

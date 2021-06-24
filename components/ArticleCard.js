@@ -8,7 +8,9 @@ export default function ArticleCard({ article }) {
     year: "numeric",
     month: "long",
     day: "numeric",
+    timeZone: "UTC",
   });
+
   return (
     <article className=" max-w-xl md:max-w-5xl w-fill mx-auto  bg-white dark:bg-navy flex flex-col md:grid md:grid-cols-12 md:gap-6">
       <div className="md:col-span-5">
