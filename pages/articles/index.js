@@ -13,7 +13,6 @@ export default function Articles({
   authors,
   featuredArticle,
 }) {
-  console.log(featuredArticle);
   return (
     <Container>
       <div className="flex flex-col space-y-16 max-w-5xl w-fill mx-auto  px-8 mt-16">

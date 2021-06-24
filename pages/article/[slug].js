@@ -51,7 +51,6 @@ export default function Article({ article }) {
 }
 
 export async function getStaticProps({ params }) {
-  console.log(params.slug);
   const GetArticleBySlugQuery = gql`
     {
       articles(where: { slug: "${params.slug}" }) {
@@ -88,7 +87,6 @@ export async function getStaticPaths() {
   const response = await client.query({
     query: GetAllArticlesAndCategoriesAndAuthorsQuery,
   });
-  console.log(response.data.articles);
 
   //   return {
   //     paths: [{ params: { slug: "suffering-unto-god" } }],
