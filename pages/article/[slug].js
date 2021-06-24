@@ -11,7 +11,6 @@ import ViewCounter from "@/components/ViewCounter";
 export default function Article({ article }) {
   return (
     <Container>
-      <ViewCounter slug={article.slug} />
       {/* <div className="shadow-md  relative h-[600px] bg-center">
         <Image
           src={article.image.image.url}
@@ -39,7 +38,9 @@ export default function Article({ article }) {
           <h1 className="font-semibold text-2xl text-center mt-6">
             {article.title}
           </h1>
-          <span></span>
+          <span>
+            <ViewCounter slug={article.slug} />
+          </span>
           <div
             dangerouslySetInnerHTML={{ __html: article.content }}
             className=" prose  prose-md prose-yellow dark:text-white text-navy mx-auto mt-6"

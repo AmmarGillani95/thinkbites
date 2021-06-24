@@ -7,8 +7,8 @@ async function fetcher(...args) {
 }
 
 export default function ViewCounter({ slug }) {
-  //   const { data } = useSWR(`/api/views/${slug}`, fetcher);
-  //   const views = new Number(data?.total);
+  const { data } = useSWR(`/api/views/${slug}`, fetcher);
+  const views = new Number(data?.total);
 
   useEffect(() => {
     const registerView = () => {
@@ -20,6 +20,5 @@ export default function ViewCounter({ slug }) {
     registerView();
   }, [slug]);
 
-  //   return `${views > 0 ? views.toLocaleString() : "–––"} views`;
-  return null;
+  return `${views > 0 ? views.toLocaleString() : "–––"} views`;
 }
