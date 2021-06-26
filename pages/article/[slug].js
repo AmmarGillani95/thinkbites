@@ -43,7 +43,7 @@ export default function Article({ article }) {
           </span>
           <div
             dangerouslySetInnerHTML={{ __html: article.content }}
-            className=" prose  prose-md prose-yellow dark:text-white text-navy mx-auto mt-6"
+            className=" prose  prose-md dark:prose-dark text-navy mx-auto mt-6"
           ></div>
         </div>
       </div>

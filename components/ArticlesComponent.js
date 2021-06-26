@@ -13,7 +13,7 @@ export default function ArticlesComponent({ articles, categories }) {
         <div className=" flex flex-row space-x-6">
           <button
             onClick={() => setCategory("all")}
-            className={`text-navy uppercase border-b-2   tracking-widest text-xs focus:outline-none focus-visible:ring-2 focus-visible:ring-salmon  transition-colors  duration-300 ease-in-out ${
+            className={`text-navy font-medium dark:text-white uppercase border-b-2   tracking-widest text-xs focus:outline-none focus-visible:ring-2 focus-visible:ring-salmon  transition-colors  duration-300 ease-in-out ${
               currentCategory == "all"
                 ? "border-b-2 border-salmon"
                 : "border-transparent "
@@ -25,7 +25,7 @@ export default function ArticlesComponent({ articles, categories }) {
             <button
               key={category.slug}
               onClick={() => setCategory(category.slug)}
-              className={`text-navy uppercase border-b-2   tracking-widest text-xs focus:outline-none focus-visible:ring-2 focus-visible:ring-salmon  transition-colors  duration-300 ease-in-out ${
+              className={`text-navy font-medium dark:text-white uppercase border-b-2   tracking-widest text-xs focus:outline-none focus-visible:ring-2 focus-visible:ring-salmon  transition-colors  duration-300 ease-in-out ${
                 currentCategory == category.slug
                   ? "border-b-2 border-salmon"
                   : "border-transparent "

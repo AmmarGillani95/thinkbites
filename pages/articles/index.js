@@ -12,11 +12,7 @@ export default function Articles({
   categories,
   authors,
   featuredArticle,
-  test,
-  test2,
 }) {
-  console.log("test--", test);
-  console.log("test2--", test2);
   return (
     <Container>
       <div className="flex flex-col space-y-16 max-w-5xl w-fill mx-auto  px-8 mt-16">
@@ -46,8 +42,6 @@ export async function getStaticProps() {
       authors: response.data.authors,
       featuredArticle: response.data.featured.article,
       featuredAuthor: response.data.featured.author,
-      test: process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, "\n"),
-      test2: process.env.FIREBASE_PRIVATE_KEY,
     },
   };
 }
