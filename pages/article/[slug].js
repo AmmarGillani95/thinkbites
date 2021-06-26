@@ -42,7 +42,27 @@ export default function Article({ article }) {
             <ViewCounter slug={article.slug} />
           </span>
           <div
-            dangerouslySetInnerHTML={{ __html: article.content }}
+            dangerouslySetInnerHTML={{
+              __html: sanitizeHtml(article.content, {
+                allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img"]),
+                allowedAttributes: {
+                  p: ["style"],
+                  span: ["style"],
+                  h1: ["style"],
+                  h2: ["style"],
+                  h3: ["style"],
+                  h4: ["style"],
+                },
+                allowedStyles: {
+                  "*": {
+                    "text-align": [/^left$/, /^right$/, /^center$/],
+                  },
+                  p: {
+                    "text-align": [/^left$/, /^right$/, /^center$/],
+                  },
+                },
+              }),
+            }}
             className=" prose  prose-md dark:prose-dark text-navy mx-auto mt-6"
           ></div>
         </div>

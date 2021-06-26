@@ -17,7 +17,7 @@ module.exports = {
       typography: (theme) => ({
         DEFAULT: {
           css: {
-            color: theme("colors.navy"),
+            color: theme("colors.gray.300"),
             a: {
               color: theme("colors.darkNavy"),
               "&:hover": {
