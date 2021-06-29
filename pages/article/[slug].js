@@ -11,10 +11,10 @@ import ViewCounter from "@/components/ViewCounter";
 
 export default function Article({ article, topArticles }) {
   console.log(topArticles);
- 
+
   return (
     <Container>
-      {/* <div className="shadow-md  relative h-[600px] bg-center">
+      <div className=" relative aspect-h-6 aspect-w-16 bg-bottom">
         <Image
           src={article.image.image.url}
           alt={article.image.alt}
@@ -23,11 +23,12 @@ export default function Article({ article, topArticles }) {
           quality={60}
           objectFit="cover"
           layout="fill"
+          priority={true}
         />
-      </div> */}
+      </div>
       <div className="relative flex flex-col max-w-5xl w-fill mx-auto  px-8 justify-between pt-8">
         <div className="max-w-2xl mx-auto w-full">
-          <div className="shadow-md relative aspect-h-3 aspect-w-5">
+          {/* <div className="shadow-md relative aspect-h-3 aspect-w-5">
             <Image
               src={article.image.image.url}
               alt={article.image.alt}
@@ -37,7 +38,7 @@ export default function Article({ article, topArticles }) {
               objectFit="cover"
               layout="fill"
             />
-          </div>
+          </div> */}
           <h1 className="font-semibold text-2xl text-center mt-6">
             {article.title}
           </h1>
@@ -66,7 +67,7 @@ export default function Article({ article, topArticles }) {
                 },
               }),
             }}
-            className=" prose  prose-md dark:prose-dark text-navy mx-auto mt-6"
+            className=" prose prose-md dark:prose-dark text-navy mx-auto mt-6"
           ></div>
         </div>
       </div>
@@ -101,14 +102,10 @@ export async function getStaticProps({ params }) {
   const response = await client.query({ query: GetArticleBySlugQuery });
   const topArticles = getTopArticles();
 
-
-
-
-
   return {
     props: {
       article: response.data.articles[0],
-      topArticles: topArticles
+      topArticles: topArticles,
     },
   };
 }
