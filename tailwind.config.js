@@ -22,7 +22,13 @@ module.exports = {
               color: theme("colors.darkNavy"),
               "&:hover": {
                 color: theme("colors.darkNavy"),
+                cursor: "pointer",
               },
+            },
+            blockquote: {
+              color: theme('colors.navy'),
+              borderLeftColor: theme('colors.salmon'),
+             
             },
           },
         },
@@ -31,9 +37,10 @@ module.exports = {
           css: {
             color: theme("colors.gray.300"),
             a: {
-              color: theme("colors.salmon"),
+              color: theme("colors.gray.300"),
               "&:hover": {
                 color: theme("colors.salmon"),
+                cursor: "pointer",
               },
             },
 
@@ -57,7 +64,7 @@ module.exports = {
             },
 
             strong: {
-              color: theme("colors.gray.300"),
+              color: theme("colors.salmon"),
             },
 
             code: {
@@ -66,6 +73,11 @@ module.exports = {
 
             figcaption: {
               color: theme("colors.gray.500"),
+            },
+            blockquote: {
+              color: theme('colors.gray.300'),
+              borderLeftColor: theme('colors.salmon'),
+             
             },
           },
         },

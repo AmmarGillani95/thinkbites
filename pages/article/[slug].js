@@ -1,4 +1,5 @@
 import sanitizeHtml from "sanitize-html";
+import getTopArticles from "@/lib/getTopArticles";
 import Image from "next/image";
 import {
   client,
@@ -8,7 +9,9 @@ import { gql } from "@apollo/client";
 import Container from "@/components/Container";
 import ViewCounter from "@/components/ViewCounter";
 
-export default function Article({ article }) {
+export default function Article({ article, topArticles }) {
+  console.log(topArticles);
+ 
   return (
     <Container>
       {/* <div className="shadow-md  relative h-[600px] bg-center">
@@ -96,10 +99,16 @@ export async function getStaticProps({ params }) {
   `;
 
   const response = await client.query({ query: GetArticleBySlugQuery });
+  const topArticles = getTopArticles();
+
+
+
+
 
   return {
     props: {
       article: response.data.articles[0],
+      topArticles: topArticles
     },
   };
 }
