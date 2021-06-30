@@ -31,7 +31,7 @@ export default function ArticleCard({ article }) {
           {article.title}
         </h3>
 
-        <div className="flex flex-col  text-gray-500  mt-0.5">
+        <div className="flex flex-col  text-gray-400  mt-0.5">
           <div className="text-xs flex flex-row space-x-2">
             {article.authors.map((author) => (
               <span key={author.name}>{author.name}</span>

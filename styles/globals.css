@@ -18,3 +18,7 @@ select:-webkit-autofill:focus {
   -webkit-box-shadow: 10px 10px 10px rgba(255, 255, 255, 0) inset;
   transition: background-color 5000s ease-in-out 0s;
 }
+
+html {
+  scroll-behavior: smooth;
+}

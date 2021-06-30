@@ -1,16 +1,27 @@
-import sanitizeHtml from "sanitize-html";
+import sanitizedHTML from "@/lib/sanitizedHTML";
+import readingTime from "reading-time";
 import getTopArticles from "@/lib/getTopArticles";
 import Image from "next/image";
 import {
   client,
   GetAllArticlesAndCategoriesAndAuthorsQuery,
+  GetAllArticles,
 } from "@/lib/client";
 import { gql } from "@apollo/client";
 import Container from "@/components/Container";
 import ViewCounter from "@/components/ViewCounter";
+import AuthorCard from "@/components/AuthorCard";
+import SidebarRecentArticles from "@/components/SidebarRecentArticles";
+import SidebarTopArticles from "@/components/SidebarTopArticles";
 
-export default function Article({ article, topArticles }) {
-  console.log(topArticles);
+export default function Article({ article, topArticles, recentArticles }) {
+  const stats = readingTime(article.content, { wordsPerMinute: 270 });
+  const articleDate = new Date(article.date).toLocaleDateString("en", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    timeZone: "UTC",
+  });
 
   return (
     <Container>
@@ -26,9 +37,10 @@ export default function Article({ article, topArticles }) {
           priority={true}
         />
       </div>
-      <div className="relative flex flex-col max-w-5xl w-fill mx-auto  px-8 justify-between pt-4">
-        <div className="max-w-2xl  w-full">
-          {/* <div className="shadow-md relative aspect-h-3 aspect-w-5">
+      <div className="relative flex flex-col max-w-5xl w-fill mx-auto  px-8 justify-between pt-6">
+        <div className="flex flex-row">
+          <div className="max-w-2xl  w-full ">
+            {/* <div className="shadow-md relative aspect-h-3 aspect-w-5">
             <Image
               src={article.image.image.url}
               alt={article.image.alt}
@@ -39,34 +51,29 @@ export default function Article({ article, topArticles }) {
               layout="fill"
             />
           </div> */}
-          <h1 className="font-semibold text-3xl  mt-6">{article.title}</h1>
-          <span>
-            <ViewCounter slug={article.slug} />
-          </span>
-          <div
-            dangerouslySetInnerHTML={{
-              __html: sanitizeHtml(article.content, {
-                allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img"]),
-                allowedAttributes: {
-                  p: ["style"],
-                  span: ["style"],
-                  h1: ["style"],
-                  h2: ["style"],
-                  h3: ["style"],
-                  h4: ["style"],
-                },
-                allowedStyles: {
-                  "*": {
-                    "text-align": [/^left$/, /^right$/, /^center$/],
-                  },
-                  p: {
-                    "text-align": [/^left$/, /^right$/, /^center$/],
-                  },
-                },
-              }),
-            }}
-            className=" prose prose-md dark:prose-dark text-navy  mt-6"
-          ></div>
+            <h1 className="font-semibold text-4xl  ">{article.title}</h1>
+            <span>
+              <ViewCounter slug={article.slug} />
+            </span>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: sanitizedHTML(article.content),
+              }}
+              className=" prose prose-md dark:prose-dark text-navy  mt-6"
+            ></div>
+          </div>
+          <div className="text-navy dark:text-white w-full flex-1 ml-16">
+            <span className=" text-xs  tracking-wide text-gray-400">{`${articleDate} • ${stats.text}`}</span>
+            <div className="mt-4">
+              {article.authors.map((author) => (
+                <AuthorCard author={author} key={author.slug} />
+              ))}
+            </div>
+            <SidebarRecentArticles
+              className="mt-8"
+              recentArticles={recentArticles}
+            />
+          </div>
         </div>
       </div>
     </Container>
@@ -76,7 +83,7 @@ export default function Article({ article, topArticles }) {
 export async function getStaticProps({ params }) {
   const GetArticleBySlugQuery = gql`
     {
-      articles(where: { slug: "${params.slug}" }) {
+      article: articles(where: { slug: "${params.slug}" }) {
         title
         slug
         date
@@ -89,20 +96,35 @@ export async function getStaticProps({ params }) {
         }
         authors {
           name
+          bio
+          slug
+          image {
+            image {
+              url
+            }
+          }
         }
         categories {
           name
         }
       }
+      recentArticles: articles(sort: "date:DESC", limit: 5) {
+        title
+        slug
+      }
     }
   `;
 
   const response = await client.query({ query: GetArticleBySlugQuery });
-  const topArticles = getTopArticles();
+  const allArticles = await client.query({
+    query: GetAllArticles,
+  });
+  const topArticles = getTopArticles(allArticles.data.articles);
 
   return {
     props: {
-      article: response.data.articles[0],
+      article: response.data.article[0],
+      recentArticles: response.data.recentArticles,
       topArticles: topArticles,
     },
   };
