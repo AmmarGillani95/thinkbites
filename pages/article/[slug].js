@@ -14,7 +14,7 @@ export default function Article({ article, topArticles }) {
 
   return (
     <Container>
-      <div className=" relative aspect-h-6 aspect-w-16 bg-bottom">
+      <div className=" relative aspect-h-5 aspect-w-16 bg-bottom">
         <Image
           src={article.image.image.url}
           alt={article.image.alt}
@@ -26,8 +26,8 @@ export default function Article({ article, topArticles }) {
           priority={true}
         />
       </div>
-      <div className="relative flex flex-col max-w-5xl w-fill mx-auto  px-8 justify-between pt-8">
-        <div className="max-w-2xl mx-auto w-full">
+      <div className="relative flex flex-col max-w-5xl w-fill mx-auto  px-8 justify-between pt-4">
+        <div className="max-w-2xl  w-full">
           {/* <div className="shadow-md relative aspect-h-3 aspect-w-5">
             <Image
               src={article.image.image.url}
@@ -39,9 +39,7 @@ export default function Article({ article, topArticles }) {
               layout="fill"
             />
           </div> */}
-          <h1 className="font-semibold text-2xl text-center mt-6">
-            {article.title}
-          </h1>
+          <h1 className="font-semibold text-3xl  mt-6">{article.title}</h1>
           <span>
             <ViewCounter slug={article.slug} />
           </span>
@@ -67,7 +65,7 @@ export default function Article({ article, topArticles }) {
                 },
               }),
             }}
-            className=" prose prose-md dark:prose-dark text-navy mx-auto mt-6"
+            className=" prose prose-md dark:prose-dark text-navy  mt-6"
           ></div>
         </div>
       </div>

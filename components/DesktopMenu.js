@@ -5,14 +5,14 @@ import { motion } from "framer-motion";
 export default function DesktopMenu({ links }) {
   return (
     <>
-      <div className="space-x-3 leading-none items-center flex">
+      <div className="space-x-1 leading-none items-center flex">
         {links.map(function (link) {
           if (!link.subMenu) {
             return (
               <NextLink
                 href={link.target}
                 key={link.name}
-                className="relative uppercase text-navy dark:text-white font-regular text-base tracking-wider flex items-center px-2 py-1 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-salmon hover:text-salmon transition-colors"
+                className="relative uppercase text-navy dark:text-white font-regular text-sm tracking-widest flex items-center px-2 py-1 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-salmon dark:hover:text-salmon transition-colors"
               >
                 {link.name}
               </NextLink>
@@ -22,7 +22,7 @@ export default function DesktopMenu({ links }) {
               <Menu as="div" className="relative " key={link.name}>
                 {({ open }) => (
                   <>
-                    <Menu.Button className="uppercase text-navy dark:text-white font-regular text-base tracking-wider flex items-center px-2 py-1 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-salmon hover:text-salmon transition-colors">
+                    <Menu.Button className="uppercase text-navy dark:text-white font-regular text-sm tracking-widest flex items-center px-2 py-1 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-salmon dark:hover:text-salmon transition-colors">
                       {link.name}
                       {link.subMenu && (
                         <svg
@@ -63,7 +63,7 @@ export default function DesktopMenu({ links }) {
                                 href={link.target}
                                 className={`${
                                   active ? "dark:bg-darkNavy bg-navy" : ""
-                                } block whitespace-nowrap rounded-md w-full px-2 py-2 cursor-pointer text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-salmon transition-colors`}
+                                } block text-sm whitespace-nowrap rounded-md w-full px-2 py-2 cursor-pointer text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-salmon transition-colors`}
                               >
                                 {link.name}
                               </NextLink>
