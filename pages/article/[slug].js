@@ -25,7 +25,7 @@ export default function Article({ article, topArticles, recentArticles }) {
 
   return (
     <Container>
-      <div className=" relative aspect-h-5 aspect-w-16">
+      <div className=" relative aspect-h-8 aspect-w-16 md:aspect-h-6">
         <Image
           src={article.image.image.url}
           alt={article.image.alt}
@@ -39,8 +39,8 @@ export default function Article({ article, topArticles, recentArticles }) {
         />
       </div>
       <div className="relative flex flex-col max-w-5xl w-fill mx-auto  px-8 justify-between pt-6">
-        <div className="flex flex-row">
-          <div className="max-w-2xl  w-full ">
+        <div className="flex flex-col lg:flex-row">
+          <div className="max-w-2xl  w-full mx-auto lg:mx-0">
             {/* <div className="shadow-md relative aspect-h-3 aspect-w-5">
             <Image
               src={article.image.image.url}
@@ -52,9 +52,20 @@ export default function Article({ article, topArticles, recentArticles }) {
               layout="fill"
             />
           </div> */}
-            <h1 className="font-semibold text-4xl text-navy dark:text-white ">
+            <h1 className="font-semibold text-2xl md:text-4xl text-navy dark:text-white ">
               {article.title}
             </h1>
+            <div className="mt-4 lg:hidden">
+              {article.authors.map((author) => (
+                <p
+                  key={author.slug}
+                  className="text-sm font-medium tracking-wider uppercase text-navy dark:text-salmon"
+                >
+                  {author.name}
+                </p>
+              ))}
+              <span className=" text-xs  tracking-wide text-gray-400">{`${articleDate} • ${stats.text}`}</span>
+            </div>
             <span>
               <ViewCounter slug={article.slug} />
             </span>
@@ -62,18 +73,18 @@ export default function Article({ article, topArticles, recentArticles }) {
               dangerouslySetInnerHTML={{
                 __html: sanitizedHTML(article.content),
               }}
-              className=" prose prose-md dark:prose-dark text-navy  mt-6"
+              className=" prose prose-lg dark:prose-dark text-navy  mt-6"
             ></div>
           </div>
-          <div className="text-navy dark:text-white w-full flex-1 ml-16">
-            <span className=" text-xs  tracking-wide text-gray-400">{`${articleDate} • ${stats.text}`}</span>
-            <div className="mt-4">
+          <div className="text-navy dark:text-white w-full flex-1 ml-0 lg:ml-16 flex flex-col items-center lg:items-start">
+            <span className=" text-xs  tracking-wide text-gray-400 hidden lg:block">{`${articleDate} • ${stats.text}`}</span>
+            <div className="mt-12 lg:mt-4 flex flex-col items-center">
               {article.authors.map((author) => (
                 <AuthorCard author={author} key={author.slug} />
               ))}
             </div>
             <SidebarRecentArticles
-              className="mt-8"
+              className="mt-14 lg:mt-8"
               recentArticles={recentArticles}
             />
           </div>

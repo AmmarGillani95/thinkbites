@@ -27,7 +27,7 @@ export default function ArticleCard({ article }) {
         </div>
       </div>
       <div className="md:col-span-7">
-        <h3 className="text-navy dark:text-white font-bold text-base md:text-base tracking-wide leading-tight md:leading-tight ">
+        <h3 className="text-navy dark:text-white font-bold text-base md:text-base tracking-wide leading-tight md:leading-tight mt-2">
           {article.title}
         </h3>
 

@@ -4,10 +4,10 @@ import Image from "next/image";
 export default function AuthorsList({ authors }) {
   return (
     <div className="">
-      <h2 className="text-xs font-medium tracking-widest uppercase">
+      <h2 className="text-xs font-medium tracking-widest uppercase text-center lg:text-left">
         Contributors
       </h2>
-      <div className="mt-4 grid  grid-cols-3 gap-4">
+      <div className="mt-4 grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-3 gap-4 ">
         {authors.map((author) => (
           <div
             key={author.slug}

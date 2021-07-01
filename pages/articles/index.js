@@ -17,11 +17,11 @@ export default function Articles({
     <Container>
       <div className="flex flex-col space-y-16 max-w-5xl w-fill mx-auto  px-8 mt-16">
         <FeaturedPost article={featuredArticle} />
-        <div className="grid grid-cols-12 ">
-          <div className="col-span-8">
+        <div className="lg:grid lg:grid-cols-12 flex flex-col">
+          <div className="lg:col-span-8">
             <ArticlesComponent articles={articles} categories={categories} />
           </div>
-          <div className="col-span-4 pl-12">
+          <div className="mt-8 lg:mt-0 lg:col-span-4 lg:pl-12">
             <AuthorsList authors={authors} />
           </div>
         </div>

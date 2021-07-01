@@ -9,7 +9,7 @@ export default function ArticlesComponent({ articles, categories }) {
 
   return (
     <section>
-      <div className="flex flex-col space-y-4">
+      <div className="flex flex-col space-y-4 items-center md:items-start">
         <div className=" flex flex-row space-x-6">
           <button
             onClick={() => setCategory("all")}
