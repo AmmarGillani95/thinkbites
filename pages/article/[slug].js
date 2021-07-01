@@ -25,7 +25,7 @@ export default function Article({ article, topArticles, recentArticles }) {
 
   return (
     <Container>
-      <div className=" relative aspect-h-5 aspect-w-16 bg-bottom">
+      <div className=" relative aspect-h-5 aspect-w-16">
         <Image
           src={article.image.image.url}
           alt={article.image.alt}
@@ -35,6 +35,7 @@ export default function Article({ article, topArticles, recentArticles }) {
           objectFit="cover"
           layout="fill"
           priority={true}
+          className="object-bottom"
         />
       </div>
       <div className="relative flex flex-col max-w-5xl w-fill mx-auto  px-8 justify-between pt-6">
@@ -51,7 +52,9 @@ export default function Article({ article, topArticles, recentArticles }) {
               layout="fill"
             />
           </div> */}
-            <h1 className="font-semibold text-4xl  ">{article.title}</h1>
+            <h1 className="font-semibold text-4xl text-navy dark:text-white ">
+              {article.title}
+            </h1>
             <span>
               <ViewCounter slug={article.slug} />
             </span>

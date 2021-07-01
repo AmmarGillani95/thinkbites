@@ -10,7 +10,7 @@ export default function SidebarRecentArticles({ className, recentArticles }) {
         {recentArticles.map((article) => (
           <NextLink
             href={`/article/${article.slug}`}
-            className="text-xs"
+            className="text-xs text-navy dark:text-white"
             key={article.slug}
           >
             {article.title}

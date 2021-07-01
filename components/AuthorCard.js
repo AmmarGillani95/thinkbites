@@ -16,11 +16,13 @@ export default function AuthorCard({ author }) {
             layout="responsive"
           />
         </div>
-        <p className=" flex-1 text-xs font-medium tracking-wider uppercase ml-2 group-hover:text-salmon transition-colors">
+        <p className=" flex-1 text-xs font-medium tracking-wider uppercase ml-2 group-hover:text-salmon transition-colors text-navy dark:text-white">
           {author.name}
         </p>
       </div>
-      <p className="mt-4 text-xs  leading-normal">{author.bio}</p>
+      <p className="mt-4 text-xs  leading-normal text-navy dark:text-white">
+        {author.bio}
+      </p>
     </div>
   );
 }

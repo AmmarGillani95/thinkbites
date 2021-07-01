@@ -20,7 +20,7 @@ export default function Container(props) {
   };
 
   return (
-    <div className="relative flex flex-col w-full  h-screen">
+    <div className="relative flex flex-col w-full  h-full bg-white dark:bg-navy">
       <Head>
         <title>{meta.title}</title>
         <meta name="robots" content="follow, index" />
