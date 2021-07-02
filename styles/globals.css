@@ -22,3 +22,7 @@ select:-webkit-autofill:focus {
 html {
   scroll-behavior: smooth;
 }
+
+.prose > * {
+  word-wrap: break-word;
+}

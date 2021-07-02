@@ -2,6 +2,7 @@ import sanitizedHTML from "@/lib/sanitizedHTML";
 import readingTime from "reading-time";
 import getTopArticles from "@/lib/getTopArticles";
 import Image from "next/image";
+import NextLink from "@/components/NextLink";
 import {
   client,
   GetAllArticlesAndCategoriesAndAuthorsQuery,
@@ -57,12 +58,11 @@ export default function Article({ article, topArticles, recentArticles }) {
             </h1>
             <div className="mt-4 lg:hidden">
               {article.authors.map((author) => (
-                <p
-                  key={author.slug}
-                  className="text-sm font-medium tracking-wider uppercase text-navy dark:text-salmon"
-                >
-                  {author.name}
-                </p>
+                <NextLink href={`/authors/${author.slug}`} key={author.slug}>
+                  <p className="text-sm font-medium tracking-wider uppercase text-navy dark:text-salmon">
+                    {author.name}
+                  </p>
+                </NextLink>
               ))}
               <span className=" text-xs  tracking-wide text-gray-400">{`${articleDate} • ${stats.text}`}</span>
             </div>

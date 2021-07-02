@@ -39,7 +39,9 @@ export default function ArticlesComponent({ articles, categories }) {
           {categories.map((category) => {
             if (currentCategory === category.slug) {
               return category.articles.map((article) => (
-                <ArticleCard article={article} key={article.slug} />
+                <NextLink href={`/article/${article.slug}`} key={article.slug}>
+                  <ArticleCard article={article} key={article.slug} />
+                </NextLink>
               ));
             }
           })}

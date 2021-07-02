@@ -1,6 +1,6 @@
 import Image from "next/image";
 import readingTime from "reading-time";
-import Link from "next/link";
+import NextLink from "./NextLink";
 
 export default function FeaturedPost({ article }) {
   const stats = readingTime(article.content, { wordsPerMinute: 270 });
@@ -17,36 +17,45 @@ export default function FeaturedPost({ article }) {
         Featured
       </h2>
       <div className="md:col-span-6">
-        <div className="relative md:w-auto md:h-full aspect-h-3 aspect-w-5 shadow-lg">
-          <Image
-            src={article.image.image.url}
-            alt={article.image.alt}
-            // width={540}
-            // height={321}
-            quality={60}
-            objectFit="cover"
-            layout="fill"
-          />
-        </div>
+        <NextLink href={`/article/${article.slug}`}>
+          <div className="relative md:w-auto md:h-full aspect-h-3 aspect-w-5 shadow-lg">
+            <Image
+              src={article.image.image.url}
+              alt={article.image.alt}
+              // width={540}
+              // height={321}
+              quality={60}
+              objectFit="cover"
+              layout="fill"
+            />
+          </div>
+        </NextLink>
       </div>
       <div className="md:col-span-6">
         <h2 className="text-salmon font-medium  text-sm tracking-widest uppercase hidden md:block">
           Featured
         </h2>
         <h3 className="text-navy dark:text-white font-bold text-base md:text-xl leading-tight tracking-wide mt-2">
-          {article.title}
+          <NextLink href={`/article/${article.slug}`}>
+            {article.title}{" "}
+          </NextLink>
         </h3>
 
         <div className="flex flex-col  text-gray-500  mt-0.5">
           <div className="text-sm flex flex-row space-x-2">
             {article.authors.map((author) => (
-              <span key={author.name}>{author.name}</span>
+              <NextLink href={`/authors/${author.slug}`}>
+                {" "}
+                <span key={author.name}>{author.name}</span>
+              </NextLink>
             ))}
           </div>
           <span className=" text-xs">{`${articleDate} • ${stats.text}`}</span>
         </div>
         <p className="mt-2 text-xs tracking-wider leading-normal md:tracking-normal md:leading-normal md:text-base font-medium text-navy dark:text-white">
-          {article.excerpt}
+          <NextLink href={`/article/${article.slug}`}>
+            {article.excerpt}
+          </NextLink>
         </p>
       </div>
     </article>
