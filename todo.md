@@ -4,10 +4,9 @@
 [x] Design single article page
 [x] Build single article page
 [x] Make Articles Page responsive
-[] Make single article page responsive
-[] Add pagination to articles page
-[] Design Author Page
-[] Build Author Page
+[x] Make single article page responsive
+[x] Design Author Page
+[x] Build Author Page
 [] Add share buttons to single article page
 [] Link article page META tags
 [] Connect homepage with STRAPI
@@ -17,3 +16,5 @@
 [] Redesign homepage colors for light mode
 [] Use actual thinkbites logo in svg format
 [] Fix dark mode toggle initial animation
+[] clean up code
+[] Add pagination to articles page
