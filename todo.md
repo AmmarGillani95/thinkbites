@@ -7,7 +7,7 @@
 [x] Make single article page responsive
 [x] Design Author Page
 [x] Build Author Page
-[] Add share buttons to single article page
+[x] Add share buttons to single article page
 [] Link article page META tags
 [] Connect homepage with STRAPI
 [] Build out single pages on STRAPI

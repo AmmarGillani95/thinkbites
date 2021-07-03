@@ -13,9 +13,9 @@ import Container from "@/components/Container";
 import ViewCounter from "@/components/ViewCounter";
 import AuthorCard from "@/components/AuthorCard";
 import SidebarRecentArticles from "@/components/SidebarRecentArticles";
-import SidebarTopArticles from "@/components/SidebarTopArticles";
+import ArticleShareLinks from "@/components/ArticleShareLinks";
 
-export default function Article({ article, topArticles, recentArticles }) {
+export default function Article({ article, recentArticles, domain }) {
   const stats = readingTime(article.content, { wordsPerMinute: 270 });
   const articleDate = new Date(article.date).toLocaleDateString("en", {
     year: "numeric",
@@ -76,9 +76,13 @@ export default function Article({ article, topArticles, recentArticles }) {
               className=" prose prose-lg dark:prose-dark text-navy  mt-6"
             ></div>
           </div>
-          <div className="text-navy dark:text-white w-full flex-1 ml-0 lg:ml-16 flex flex-col items-center lg:items-start">
+          <div className="text-navy dark:text-white w-full flex-1 ml-0 lg:ml-16 flex flex-col items-center lg:items-start mt-4 lg:mt-0">
             <span className=" text-xs  tracking-wide text-gray-400 hidden lg:block">{`${articleDate} • ${stats.text}`}</span>
-            <div className="mt-12 lg:mt-4 flex flex-col items-center">
+            <ArticleShareLinks
+              url={`${domain}/article/${article.slug}`}
+              title={article.title}
+            />
+            <div className="mt-4 lg:mt-4 flex flex-col items-center">
               {article.authors.map((author) => (
                 <AuthorCard author={author} key={author.slug} />
               ))}
@@ -140,6 +144,7 @@ export async function getStaticProps({ params }) {
       article: response.data.article[0],
       recentArticles: response.data.recentArticles,
       topArticles: topArticles,
+      domain: process.env.domain,
     },
   };
 }

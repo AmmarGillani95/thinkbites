@@ -7,4 +7,7 @@ module.exports = {
       "res.cloudinary.com",
     ],
   },
+  env: {
+    domain: "thinkbites.vercel.app",
+  },
 };
