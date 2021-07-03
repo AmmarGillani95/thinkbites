@@ -45,7 +45,6 @@ export default function FeaturedPost({ article }) {
           <div className="text-sm flex flex-row space-x-2">
             {article.authors.map((author) => (
               <NextLink href={`/authors/${author.slug}`}>
-                {" "}
                 <span key={author.name}>{author.name}</span>
               </NextLink>
             ))}
