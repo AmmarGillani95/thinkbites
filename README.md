@@ -8,7 +8,9 @@ This is an ongoing project rebuilding the thinkbites.org website.
 - Tailwind CSS
 - Framer Motion
 - Headless UI
-- GraphQL
+- GraphQL <br/>
+<br/>
+
 ![](./screenshot.jpg)
 
 ### Live Site: https://thinkbites.vercel.app/
@@ -18,5 +20,5 @@ This is an ongoing project rebuilding the thinkbites.org website.
 
 - Fully responsive design
 - Dark and Light mode
-- Beautifully animated using Framer Motion
+- Animations using Framer Motion
 
